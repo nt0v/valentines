@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ΘΟΔΩΡΑ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="shortcut icon" href="heart.png" type="image/x-icon">
+</head>
+<body>
+
+    <!-- Falling Hearts Background -->
+    <div class="hearts-container" id="hearts-container"></div>
+
+    <!-- Intro / Lock Screen -->
+    <div id="intro" class="intro-screen">
+        <div class="gift-box" onclick="openGift()">
+            <div class="lid"></div>
+            <div class="box">
+                <i class="fa-solid fa-heart"></i>
+            </div>
+            <p class="click-text">Πάτησε για να ανοίξεις (σήκω όρθια αν δε φτάνεις)</p>
+        </div>
+    </div>
+
+    <!-- Main Content (Hidden initially) -->
+    <div id="main-content" class="hidden">
+        
+        <!-- Music Control -->
+        <button id="music-control" onclick="toggleMusic()">
+            <i class="fa-solid fa-music"></i>
+        </button>
+        <audio id="bg-music" loop>
+            <!-- Replace with your own music file or URL -->
+            <source src="sound.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <header>
+            <h1>Για την ΘΟΔΩΡΑ...</h1>
+        </header>
+
+        <section class="letter-section">
+            <div class="paper">
+                <p>Θοδώρα,</p>
+                <p>
+                    Είσαι νάνος και ας λες ότι έχεις φυσιολογικό ύψος. Αλλά δε πειράζει, και ο σκύλος σας κοντός είναι και τον αγαπάμε.
+                    Ξέχασα να πω ότι είσαι και κοντή. Και ότι επίσης δεν έχω ξαναδεί πιο κοντό άνθρωπο. Σε αγαπάμε και εσένα έτσι (και ας μη σε βλέπουμε αν είμαστε όρθιοι).
+                </p>
+                <p>Αυτό είναι για σένα 🌷.</p>
+                <p>Και αυτό για τον σκύλο σου 🥩</p>
+                <p class="signature">- ντοβ</p>
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <h2>Δες και αυτά (και μη ροχαλίζεις) 📸</h2>
+            <div class="gallery">
+                <!-- Placeholders: Replace src with your image paths (e.g., images/photo1.jpg) -->
+                <div class="photo-card" style="--rotation: -5deg"><img src="1.jpg" alt="Memory 1"></div>
+                <div class="photo-card" style="--rotation: 3deg"><img src="2.jpg" alt="Memory 2"></div>
+                <div class="photo-card" style="--rotation: -2deg"><img src="3.jpg" alt="Memory 3"></div>
+            </div>
+        </section>
+
+        <footer>
+            <p>χιχιχιχιχιχι ❤️</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,377 @@
+:root {
+    --primary-color: #ff4d6d;
+    --secondary-color: #ff8fa3;
+    --bg-color: #fff0f3;
+    --text-color: #590d22;
+    --paper-color: #fff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+h1,
+h2 {
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+/* Falling Hearts Background */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    top: -10vh;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    opacity: 0.8;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+
+/* Intro Screen */
+.intro-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    transition: opacity 1s ease;
+}
+
+.gift-box {
+    cursor: pointer;
+    text-align: center;
+    animation: bounce 2s infinite;
+}
+
+.lid {
+    width: 120px;
+    height: 30px;
+    background-color: var(--primary-color);
+    margin: 0 auto;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: var(--secondary-color);
+    margin: -5px auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: white;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.click-text {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-20px);
+    }
+
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Main Content */
+.hidden {
+    display: none;
+}
+
+#main-content {
+    opacity: 0;
+    transition: opacity 1.5s ease-in;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+header {
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Letter Section */
+.letter-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.paper {
+    background-color: var(--paper-color);
+    padding: 40px;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    line-height: 1.8;
+    font-size: 1.2rem;
+    transform: rotate(-1deg);
+    position: relative;
+}
+
+.paper:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 40px;
+    height: 100%;
+    width: 2px;
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+.signature {
+    margin-top: 30px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    text-align: right;
+}
+
+/* Gallery Section */
+.gallery-section {
+    margin-bottom: 60px;
+}
+
+.gallery-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.photo-card {
+    background-color: white;
+    padding: 15px 15px 60px 15px;
+    /* Adjust padding for balanced look */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transform: rotate(var(--rotation));
+    transition: transform 0.3s ease;
+    border-radius: 4px;
+    width: 300px;
+    /* Fixed, larger width */
+}
+
+.photo-card:hover {
+    transform: scale(1.1) rotate(0deg) !important;
+    z-index: 20;
+}
+
+.photo-card img {
+    width: 100%;
+    /* Fill the card width */
+    height: 350px;
+    /* Fixed height for consistency */
+    object-fit: cover;
+    /* Crop to fill */
+    display: block;
+    border-radius: 2px;
+}
+
+/* Countdown Section */
+.countdown-section {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.countdown-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.time-box {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    border-radius: 10px;
+    min-width: 80px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.time-box span {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.time-box .label {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    font-weight: normal;
+}
+
+.date-target {
+    margin-top: 15px;
+    font-style: italic;
+    color: var(--text-color);
+}
+
+/* Music Control */
+#music-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    transition: transform 0.2s;
+}
+
+#music-control:hover {
+    transform: scale(1.1);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    body {
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+    }
+
+    #main-content {
+        padding-bottom: calc(20px + env(safe-area-inset-bottom));
+        /* Lift content above home bar */
+    }
+
+    header {
+        margin-top: 30px;
+    }
+
+    header h1 {
+        font-size: 2.8rem;
+    }
+
+    .paper {
+        padding: 30px 20px;
+        font-size: 1.1rem;
+    }
+
+    .gallery {
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+
+    .photo-card {
+        width: 85vw;
+        /* Almost full width on mobile */
+        padding: 10px 10px 50px 10px;
+    }
+
+    .photo-card img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4/5;
+        /* Good portrait ratio */
+        max-width: none;
+    }
+
+    /* Responsive image size */
+
+    .countdown {
+        gap: 8px;
+    }
+
+    .time-box {
+        min-width: 55px;
+        padding: 8px;
+    }
+
+    .time-box span {
+        font-size: 1.4rem;
+    }
+
+    .time-box .label {
+        font-size: 0.75rem;
+    }
+
+    /* Moving music button up slightly to avoid bottom safe area overlap */
+    #music-control {
+        bottom: calc(20px + env(safe-area-inset-bottom));
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+}
